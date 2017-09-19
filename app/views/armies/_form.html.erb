@@ -1,0 +1,32 @@
+<%= form_with(model: [@civilization, army], local: true) do |form| %>
+  <% if army.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(army.errors.count, "error") %> prohibited this army from being saved:</h2>
+
+      <ul>
+      <% army.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <h3>Civilizacion:</h3>
+    <p>
+      <%= @civilization.name %>
+    </p>
+
+    <!-- form.select :civilization_id,Civilization::CIVILIZACIONES.map { |n| [n[:name], Civilization::CIVILIZACIONES.index(n) + 1] }-->
+  </div>
+  <br>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :army_name %>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

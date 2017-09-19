@@ -1,0 +1,27 @@
+<%= form_for @army_united, url: transformations_update_path(id: @army_united.id), method: :post  do %>
+  <% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
+
+  <h1>Transformacion de unidades</h1>
+  <h3>Saldo actual: <%= @army_united.army.saldo %></h3>
+  <br>
+  <div class="field">
+    <%= label_tag "Unidad:" %>
+    <%= @army_united.united.name %>
+  </div>
+  <br>
+
+  <div class="field">
+    <%= label_tag "Cantidad:" %>
+    <%= text_field_tag :cantidad %>
+  </div>
+  <div class="field">
+    <%= label_tag "Costo de la unidad:" %>
+    <%= @army_united.united.transformation.costo %>
+  </div>
+  <br>
+  <div><%= submit_tag 'Save' %></div>
+<% end %>
+<br><br>
+<%= link_to "Atras", civilization_army_path(civilization_id: @civilization, id: @army) %>

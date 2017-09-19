@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Armies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Civilization</th>
+      <th>Saldo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @armies.each do |army| %>
+      <tr>
+        <td><%= army.civilization %></td>
+        <td><%= army.saldo %></td>
+        <td><%= link_to 'Show', army %></td>
+        <td><%= link_to 'Edit', edit_army_path(army) %></td>
+        <td><%= link_to 'Destroy', army, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Army', new_army_path %>

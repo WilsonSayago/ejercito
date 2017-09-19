@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  united: one
+  unidad_convertir: MyString
+  costo: 1
+
+two:
+  united: two
+  unidad_convertir: MyString
+  costo: 1

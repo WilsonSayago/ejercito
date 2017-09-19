@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Civilizations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Piqueros</th>
+      <th>Arqueros</th>
+      <th>Caballero</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @civilizations.each do |civilization| %>
+      <tr>
+        <td><%= civilization.name %></td>
+        <td><%= civilization.piqueros %></td>
+        <td><%= civilization.arqueros %></td>
+        <td><%= civilization.caballero %></td>
+        <td><%= link_to 'Show', civilization %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

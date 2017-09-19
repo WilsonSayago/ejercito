@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  army_united: one
+  puntos_obtenidos: 1
+  costo: 1
+
+two:
+  army_united: two
+  puntos_obtenidos: 1
+  costo: 1

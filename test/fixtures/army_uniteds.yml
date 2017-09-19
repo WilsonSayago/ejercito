@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  army: one
+  united: one
+  cantidad: 1
+
+two:
+  army: two
+  united: two
+  cantidad: 1

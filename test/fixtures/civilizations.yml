@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  piqueros: 1
+  arqueros: 1
+  caballero: 1
+
+two:
+  name: MyString
+  piqueros: 1
+  arqueros: 1
+  caballero: 1

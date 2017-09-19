@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  army_united: one
+  trainings: one
+
+two:
+  army_united: two
+  trainings: two

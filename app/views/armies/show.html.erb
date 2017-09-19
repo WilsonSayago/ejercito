@@ -1,0 +1,116 @@
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+<p>
+  <strong>Civilization:</strong>
+  <%= @army.civilization.name %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @army.name %>
+</p>
+
+<p>
+  <strong>Saldo:</strong>
+  <%= @army.saldo %>
+</p>
+
+<p>
+  <strong>Puntos de combrate:</strong>
+  <%= @army.puntos_totales %>
+</p>
+
+<h1>Unidades</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Cantidad</th>
+      <th>Puntos x Unidad</th>
+      <th>Puntos totales</th>
+      <th>Costo - Entrenamiento</th>
+      <th>Costo - Transformar</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @army.army_united.each do |army_united| %>
+      <tr>
+        <td><%= army_united.united.name %></td>
+        <td><%= army_united.cantidad %></td>
+        <td><%= army_united.calcular_puntos %></td>
+        <td><%= army_united.cantidad*army_united.calcular_puntos %></td>
+        <td>
+          <% if army_united.cantidad > 0 %>
+            <% if (@army.saldo-army_united.united.training.costo) >= 0%>
+              <%= army_united.united.training.costo %> | <%= link_to "Entrenamiento", army_uniteds_entrenamiento_path(id: army_united.id) %>
+            <% end %>
+          <% end %>
+        </td>
+        <td>
+          <% if army_united.cantidad > 0 %>
+            <% if army_united.united.transformation.united_id != 3%>
+              <% if (@army.saldo-army_united.united.transformation.costo) >= 0%>
+                <%= army_united.united.training.costo %> | <%= link_to "transformacion", transformations_index_path(id: army_united.id) %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br><br>
+
+<h1>Historial</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Civilizacion</th>
+      <th>Oponente</th>
+      <th>Estatus</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @army.records.each do |record| %>
+      <tr>
+        <td><%= record.get_oponente.civilization.name %></td>
+        <td><%= record.get_oponente.name %></td>
+        <td><%= record.estatus %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br><br>
+
+<h1>Ejercitos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Civilization</th>
+      <th>Ejercito</th>
+      <th>Puntos de Combate</th>
+      <th colspan="3">Acción</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @armies.each do |army| %>
+      <tr>
+        <td><%= army.civilization.name %></td>
+        <td><%= army.name %></td>
+        <td><%= army.puntos_totales %></td>
+        <td><%= link_to "Atacar", armies_index_path(civilization_id: @army.civilization.id, id: @army.id, oponente: army.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br><br>
+<%= link_to "Atras", civilizations_path() %>
